@@ -19,29 +19,62 @@
     }
 
     // Regular
-
+    console.log("Hello! I am a Full Stack Web Developer");
     // Interpolated
-
+    console.log("Hello! I am %s String", '😇');
+    // Interpolation using ES6 Feature
+    const title = 'Full Stack Developer';
+    console.log(`Hello! I am a ${title}`);
     // Styled
-
+    console.log('%c I am a great Text', 'font-size: 30px; color: yellow; background: red;');
     // warning!
-
-    // Error :|
-
+    console.warn("OH! NOOOO, OOPs");
+    // Error :  
+    console.error("Shit!");
     // Info
-
+    console.info("You are cute!")
     // Testing
-
+    /* It will print the message in console when the expression is false, else It will not log any thing */
+    console.assert(1 === 1, 'This is wrong');
+    console.log(1 === 2, 'This is wrong'); 
     // clearing
-
+    console.clear();
     // Viewing DOM Elements
-
+    const p = document.querySelector('p');
+    // console.log(p);
+    console.dir(p);
     // Grouping together
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.groupEnd(`${dog.name}`);
+    })
 
     // counting
-
+    console.count('Aneesh');
+    console.count('Aneesh');
+    console.count('Web Developer!');
+        console.count('Aneesh');
+  console.count('Web Developer!');
+        console.count('Aneesh');
+  console.count('Aneesh');
+  console.count('Web Developer!');
+    console.count('Aneesh');
+    console.count('Web Developer!');
+    console.count('Web Developer!');
+    console.clear()
     // timing
+    console.time('fetching Data');
+    fetch('https://fakestoreapi.com/products')
+        .then(res => res.json())
+        .then(data => {
+          console.timeEnd('fetching Data');
+          console.log(data)
+        });
 
+        // Table
+        console.table(dogs);
   </script>
 </body>
 </html>
