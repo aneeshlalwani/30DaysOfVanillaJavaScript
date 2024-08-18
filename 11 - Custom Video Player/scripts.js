@@ -18,10 +18,18 @@ function updateButton() {
     const icon = this.paused ? '►' : '❚ ❚';
     toggle.textContent = icon;
 }
-
+// Function to skip the video 10 seconds backward and 25 seconds forward
+function skip() {
+    video.currentTime += parseFloat(this.dataset.skip);
+}
 
 /*  HOOKING UP THE EVENTS   */
+
+// Video play and pause Event
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton);
 video.addEventListener('pause', updateButton);
 toggle.addEventListener('click', togglePlay);
+
+// Video Skip Event 
+skipButtons.forEach(button => button.addEventListener('click', skip));
