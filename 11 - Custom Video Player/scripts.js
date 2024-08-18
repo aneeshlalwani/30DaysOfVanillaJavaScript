@@ -61,3 +61,7 @@ ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
 
 // video scrub Event
 progress.addEventListener('click', scrub);
+let mousedown = false;
+progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
+progress.addEventListener('mousedown', () => mousedown = true);
+progress.addEventListener('mouseup', ()=> mousedown = false)
