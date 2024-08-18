@@ -34,6 +34,13 @@ function handleProgress() {
     progressBar.style.flexBasis = `${percent}%`
  }
 
+// Function to update the video scrub
+function scrub(e) {
+    // console.log(this.e)
+    const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+    video.currentTime = scrubTime;
+}
+
 /*  HOOKING UP THE EVENTS   */
 
 // Video play and pause Event
@@ -51,3 +58,6 @@ skipButtons.forEach(button => button.addEventListener('click', skip));
 // video volume and playBackRate range Event 
 ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
 ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
+
+// video scrub Event
+progress.addEventListener('click', scrub);
