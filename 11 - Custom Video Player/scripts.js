@@ -22,7 +22,10 @@ function updateButton() {
 function skip() {
     video.currentTime += parseFloat(this.dataset.skip);
 }
-
+// Function to up and down the volume AND change the playBackRate of a video
+function handleRangeUpdate() {
+    video[this.name] = this.value;
+}
 /*  HOOKING UP THE EVENTS   */
 
 // Video play and pause Event
@@ -33,3 +36,7 @@ toggle.addEventListener('click', togglePlay);
 
 // Video Skip Event 
 skipButtons.forEach(button => button.addEventListener('click', skip));
+
+// video volume and playBackRate range Event 
+ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
+ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
