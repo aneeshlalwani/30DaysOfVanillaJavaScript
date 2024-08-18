@@ -26,6 +26,14 @@ function skip() {
 function handleRangeUpdate() {
     video[this.name] = this.value;
 }
+
+// Function to update the progress bar
+function handleProgress() {
+    // Calculating how long the video will run
+    const percent = (video.currentTime / video.duration) * 100;
+    progressBar.style.flexBasis = `${percent}%`
+ }
+
 /*  HOOKING UP THE EVENTS   */
 
 // Video play and pause Event
@@ -33,6 +41,9 @@ video.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton);
 video.addEventListener('pause', updateButton);
 toggle.addEventListener('click', togglePlay);
+
+// Video progress bar Event
+video.addEventListener('timeupdate', handleProgress);
 
 // Video Skip Event 
 skipButtons.forEach(button => button.addEventListener('click', skip));
