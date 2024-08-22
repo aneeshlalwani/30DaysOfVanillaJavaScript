@@ -23,11 +23,10 @@
     console.log(age, sameAge);
     // Let's say we have an array
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
-
     // and we want to make a copy of it.
-
+    let team = players;
     // You might think we can just do something like this:
-
+    team[4] = "Messi";
     // however what happens when we update that array?
 
     // now here is the problem!
@@ -41,9 +40,9 @@
     // one way
 
     // or create a new array and concat the old one in
-
+    const newTeamOne = [].concat(players);
     // or use the new ES6 Spread
-
+    const newTeamTwo = [...players];
     // now when we update it, the original one isn't changed
 
     // The same thing goes for objects, let's say we have a person object
@@ -57,7 +56,7 @@
     // and think we make a copy:
 
     // how do we take a copy instead?
-
+    const newPerson = Object.assign({}, person, {number: 99});
     // We will hopefully soon see the object ...spread
 
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
